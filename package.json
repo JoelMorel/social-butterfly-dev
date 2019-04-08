@@ -1,0 +1,16 @@
+{
+  "name": "social-butterfly",
+  "version": "1.0.0",
+  "description": "social network site that will connect with other services.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joel Morel",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.22"
+  }
+}
