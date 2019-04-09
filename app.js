@@ -8,11 +8,24 @@ require("./config/passport")(passport);
 // Load routes
 const auth = require("./routes/auth");
 
-// launch express app
+// Keys
+const keys = require("./config/keys");
+
+// Database Code
+mongoose
+  .connect(keys.mongoURI, {
+    useNewUrlParser: true
+  })
+  .then(() => {
+    console.log("Connected to database...");
+  })
+  .catch(err => console.log(err));
+
+// Launch Express App
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Sucess");
+  res.send("Success");
 });
 
 app.use("/auth", auth);
