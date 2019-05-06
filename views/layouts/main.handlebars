@@ -17,17 +17,12 @@
 </head>
 
 <body>
-
     {{> _header}}
-
     <main>
         <div class="container">
             {{{body}}}
         </div>
-
-
     </main>
-
 
     <!-- jQuery script  -->
     <script src="https://code.jquery.com/jquery-3.4.0.js"
@@ -38,8 +33,8 @@
 
     <script>
         $(document).ready(() => {
-            $(".button-collapse").sideNav
-        })
+            $('.sidenav').sidenav();
+        });
     </script>
 
 </body>
