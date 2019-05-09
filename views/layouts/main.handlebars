@@ -13,16 +13,30 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+    <!-- Link CSS to main HTML-->
+    <link rel="stylesheet" href="/css/style.css">
+
     <title>Social-Butterfly</title>
 </head>
 
 <body>
+    <!-- Link to header-->
     {{> _header}}
+
+    <!-- If user is logged in, display/perform the following:-->
+    {{#if user}}
+    {{> _add-btn}}
+    {{/if}}
+
+    <!-- Link to body-->
     <main>
         <div class="container">
             {{{body}}}
         </div>
     </main>
+
+    <!-- Link to footer-->
+    {{> _footer}}
 
     <!-- jQuery script  -->
     <script src="https://code.jquery.com/jquery-3.4.0.js"
@@ -31,9 +45,18 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- Link to CKEditor CDN-->
+    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+
+    <!-- User defined scripts: -->
     <script>
         $(document).ready(() => {
             $('.sidenav').sidenav();
+            $("select").formSelect();
+        });
+
+        CKEDITOR.replace("body", {
+            plugins: "wysiwygarea,toolbar,basicstyles,link"
         });
     </script>
 
