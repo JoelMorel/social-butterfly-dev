@@ -7,3 +7,23 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.story-text {
+  height: 120px;
+}
+
+.dash--status {
+  text-transform: capitalize;
+}
+
+#delete-form {
+  display: inline;
+}
+
+.btn-custom {
+  width: 88px;
+  font-weight: 700;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-bottom: 3px;
+}

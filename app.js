@@ -6,6 +6,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 
 // Load Models
 require("./models/User");
@@ -23,7 +24,13 @@ const stories = require("./routes/stories");
 const keys = require("./config/keys");
 
 // Handlebar Helpers
-const { truncate, stripHTMLTags } = require("./helpers/hbs");
+const {
+  truncate,
+  stripHTMLTags,
+  formatDate,
+  select,
+  editIcon
+} = require("./helpers/hbs");
 
 // Database Code
 mongoose
@@ -38,11 +45,12 @@ mongoose
 // Launch Express App
 const app = express();
 
-// parse application/x-www-form-urlencoded
+// Parse application/x-www-form-urlencoded && Application/json
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
 app.use(bodyParser.json());
+
+// Method Override Middleware
+app.use(methodOverride("_method"));
 
 // Handlebars middleware
 app.engine(
@@ -50,7 +58,10 @@ app.engine(
   exphbs({
     helpers: {
       truncate: truncate,
-      stripHTMLTags: stripHTMLTags
+      stripHTMLTags: stripHTMLTags,
+      formatDate: formatDate,
+      select: select,
+      editIcon: editIcon
     },
     defaultLayout: "main"
   })
