@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "npm install",
-    "test": "npm test"
+    "test": "exit 0"
   },
   "author": "Joel Morel",
   "license": "MIT",
